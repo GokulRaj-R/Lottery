@@ -1,0 +1,172 @@
+let SessionLoad = 1
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd E:\Dev\lottery\lottery-frontend
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +2 E:\Dev\lottery\test\Lottery.test.js
+badd +0 term://.//10820:C:\Windows\system32\cmd.exe
+badd +3 E:\Dev\lottery\compile.js
+badd +35 E:\Dev\lottery\contracts\Lottery.sol
+badd +179 ~\AppData\Local\nvim\init.vim
+badd +1 src\web3.js
+badd +20 src\App.js
+badd +2 term
+badd +0 !\ :term
+badd +21 E:\Dev\lottery\deploy.js
+badd +0 term://.//7036:C:\Windows\system32\cmd.exe
+badd +1 src\lottery.js
+argglobal
+%argdel
+set stal=2
+edit src\App.js
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+wincmd _ | wincmd |
+vsplit
+2wincmd h
+wincmd w
+wincmd w
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+exe 'vert 1resize ' . ((&columns * 29 + 85) / 170)
+exe 'vert 2resize ' . ((&columns * 70 + 85) / 170)
+exe 'vert 3resize ' . ((&columns * 69 + 85) / 170)
+argglobal
+enew
+file NERD_tree_1
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+wincmd w
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 20 - ((19 * winheight(0) + 18) / 36)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+20
+normal! 03|
+wincmd w
+argglobal
+if bufexists("term://.//10820:C:\Windows\system32\cmd.exe") | buffer term://.//10820:C:\Windows\system32\cmd.exe | else | edit term://.//10820:C:\Windows\system32\cmd.exe | endif
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+let s:l = 960 - ((35 * winheight(0) + 18) / 36)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+960
+normal! 0
+wincmd w
+2wincmd w
+exe 'vert 1resize ' . ((&columns * 29 + 85) / 170)
+exe 'vert 2resize ' . ((&columns * 70 + 85) / 170)
+exe 'vert 3resize ' . ((&columns * 69 + 85) / 170)
+tabedit E:\Dev\lottery\deploy.js
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+wincmd _ | wincmd |
+vsplit
+2wincmd h
+wincmd w
+wincmd w
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+exe 'vert 1resize ' . ((&columns * 31 + 85) / 170)
+exe 'vert 2resize ' . ((&columns * 68 + 85) / 170)
+exe 'vert 3resize ' . ((&columns * 69 + 85) / 170)
+argglobal
+enew
+file NERD_tree_2
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+wincmd w
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 17 - ((16 * winheight(0) + 18) / 36)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+17
+normal! 012|
+wincmd w
+argglobal
+if bufexists("term://.//7036:C:\Windows\system32\cmd.exe") | buffer term://.//7036:C:\Windows\system32\cmd.exe | else | edit term://.//7036:C:\Windows\system32\cmd.exe | endif
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+let s:l = 8 - ((7 * winheight(0) + 18) / 36)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+8
+normal! 07|
+wincmd w
+exe 'vert 1resize ' . ((&columns * 31 + 85) / 170)
+exe 'vert 2resize ' . ((&columns * 68 + 85) / 170)
+exe 'vert 3resize ' . ((&columns * 69 + 85) / 170)
+tabnext 1
+set stal=1
+if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 winminheight=1 winminwidth=1 shortmess=filnxtToOFc
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :
